@@ -1,0 +1,196 @@
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --success: #10b981;
+  --danger: #ef4444;
+  --border: #e5e7eb;
+  --light: #f3f4f6;
+  --dark: #1f2937;
+}
+
+.add-task {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  border: 1px solid var(--border);
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.add-task:hover {
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
+}
+
+.add-task h2 {
+  margin-bottom: 24px;
+  color: var(--dark);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Message Styles */
+.error-message,
+.success-message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-message {
+  color: #7f1d1d;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-left: 4px solid var(--danger);
+}
+
+.success-message {
+  color: #065f46;
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+  border-left: 4px solid var(--success);
+}
+
+/* Form Styles */
+.add-task form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  color: var(--dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group small {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* Input Styles */
+.add-task input,
+.add-task textarea,
+.add-task select {
+  padding: 12px 14px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background: white;
+  color: var(--dark);
+  transition: all 0.3s ease;
+}
+
+.add-task input::placeholder,
+.add-task textarea::placeholder {
+  color: #d1d5db;
+}
+
+.add-task input:hover,
+.add-task textarea:hover,
+.add-task select:hover {
+  border-color: var(--primary-light);
+  background: var(--light);
+}
+
+.add-task input:focus,
+.add-task textarea:focus,
+.add-task select:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Button Styles */
+.add-task button {
+  padding: 12px 16px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.add-task button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.add-task button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.add-task button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .add-task {
+    padding: 20px;
+    position: relative;
+    top: 0;
+  }
+
+  .add-task h2 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+  }
+
+  .add-task form {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-task {
+    padding: 16px;
+  }
+
+  .add-task h2 {
+    font-size: 1.1rem;
+  }
+
+  .add-task input,
+  .add-task textarea,
+  .add-task select {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+
+  .add-task button {
+    padding: 11px 14px;
+    font-size: 14px;
+  }
+}
