@@ -7,21 +7,14 @@ require('dotenv').config();
 // Create express app
 const app = express();
 
-// CORS configuration
-const corsOptions = {
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:3000',
-    'https://task-pilot-rho.vercel.app',
-    'https://task-manager.vercel.app'
-  ],
+// CORS configuration - ⚠️ CORS MUST BE FIRST - Before all routes
+app.use(cors({
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true,
-  optionsSuccessStatus: 200
-};
+  credentials: true
+}));
 
-// Middleware
-app.use(cors(corsOptions));
+// Then other middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
